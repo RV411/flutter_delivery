@@ -14,3 +14,15 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+Resources
+
+-[Lootie](https://lottiefiles.com/35528-delivery)
+-[Colors](https://v4.mui.com/es/customization/color/)
+-[Material Icon](https://mui.com/components/material-icons/?query=email)
+-[Fonts](https://www.1001fonts.com/)
+-[]()
+-[]()
+
+
+

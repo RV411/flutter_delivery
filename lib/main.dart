@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_delivery/src/login/login_page.dart';
+import 'package:flutter_delivery/src/register/register_page.dart';
 import 'package:flutter_delivery/src/utils/my_colors.dart';
 
 void main() {
@@ -7,7 +8,7 @@ void main() {
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -23,8 +24,12 @@ class _MyAppState extends State<MyApp> {
       initialRoute: 'login',
       routes: {
         'login': (BuildContext context) => LoginPage(),
+        'register': (BuildContext context) => RegisterPage(),
       },
-      theme: ThemeData(primaryColor: MyColors.primaryColor),
+      theme: ThemeData(
+        //fontFamily: 'NimbusSans',
+        primaryColor: MyColors.primaryColor,
+      ),
     );
   }
 }

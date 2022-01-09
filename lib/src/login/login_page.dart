@@ -1,33 +1,46 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:flutter_delivery/src/login/login_controller.dart';
 import 'package:flutter_delivery/src/utils/my_colors.dart';
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({Key key}) : super(key: key);
 
   @override
   _LoginPageState createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  LoginController _con = new LoginController();
+
+  @override
+  void initState() {
+    super.initState();
+    SchedulerBinding.instance.addPostFrameCallback((timeStamp) {
+      _con.init(context);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          width: double.infinity,
-          child: Stack(
-            children: [
-              Positioned(
-                top: -80,
-                left: -100,
-                child: _circuloLogin(),
-              ),
-              Positioned(
-                top: 60,
-                left: 25,
-                child: _textLogin(),
-              ),
-              Column(
+        width: double.infinity,
+        child: Stack(
+          children: [
+            Positioned(
+              top: -80,
+              left: -100,
+              child: _circuloLogin(),
+            ),
+            Positioned(
+              top: 60,
+              left: 25,
+              child: _textLogin(),
+            ),
+            SingleChildScrollView(
+              child: Column(
                 children: [
                   _lottieAnimation(),
                   _textfieldCorreo(),
@@ -36,8 +49,10 @@ class _LoginPageState extends State<LoginPage> {
                   _textEnlaces()
                 ],
               ),
-            ],
-          )),
+            ),
+          ],
+        ),
+      ),
       //   body: Column(
       //     children: [
       //       SizedBox(height: 20),
@@ -92,6 +107,7 @@ class _LoginPageState extends State<LoginPage> {
         color: Colors.white,
         fontWeight: FontWeight.bold,
         fontSize: 22,
+        fontFamily: 'NimbusSans',
       ),
     );
   }
@@ -119,6 +135,8 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(30),
       ),
       child: TextField(
+        controller: _con.emailController,
+        keyboardType: TextInputType.emailAddress,
         decoration: InputDecoration(
           hintText: 'Correo Electronico',
           border: InputBorder.none,
@@ -143,6 +161,8 @@ class _LoginPageState extends State<LoginPage> {
         borderRadius: BorderRadius.circular(30),
       ),
       child: TextField(
+        controller: _con.passwordController,
+        obscureText: true,
         decoration: InputDecoration(
           hintText: 'Contraseña',
           border: InputBorder.none,
@@ -164,7 +184,7 @@ class _LoginPageState extends State<LoginPage> {
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 50, vertical: 30),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: _con.Login,
         child: Text('INGRESAR'),
         style: ElevatedButton.styleFrom(
           primary: MyColors.primaryColor,
@@ -188,13 +208,16 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         SizedBox(width: 7),
-        Text(
-          'REGISTRATE',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: MyColors.primaryColor,
+        GestureDetector(
+          onTap: _con.goToRegisterPage,
+          child: Text(
+            'REGISTRATE',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: MyColors.primaryColor,
+            ),
           ),
-        ),
+        )
       ],
     );
   }
