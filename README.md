@@ -17,12 +17,13 @@ samples, guidance on mobile development, and a full API reference.
 
 Resources
 
--[Lootie](https://lottiefiles.com/35528-delivery)
--[Colors](https://v4.mui.com/es/customization/color/)
--[Material Icon](https://mui.com/components/material-icons/?query=email)
--[Fonts](https://www.1001fonts.com/)
--[quicktype](https://app.quicktype.io/)
--[HTTP Install](https://pub.dev/packages/http/install)
+- [Lootie](https://lottiefiles.com/35528-delivery)
+- [Colors](https://v4.mui.com/es/customization/color/)
+- [Material Icon](https://mui.com/components/material-icons/?query=email)
+- [Fonts](https://www.1001fonts.com/)
+- [quicktype](https://app.quicktype.io/)
+- [HTTP Install](https://pub.dev/packages/http/install)
+- [SECRET KEY GENERATOR](https://randomkeygen.com/)
 
 
 
