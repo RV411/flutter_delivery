@@ -196,7 +196,7 @@ class _RegisterPageState extends State<RegisterPage> {
         borderRadius: BorderRadius.circular(30),
       ),
       child: TextField(
-        controller: _con.password1Controller,
+        controller: _con.passwordController,
         obscureText: true,
         decoration: InputDecoration(
           hintText: 'Contraseña',
