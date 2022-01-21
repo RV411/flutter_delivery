@@ -81,4 +81,8 @@ class RegisterController {
     MySnackbar.show(context, responseApi.message);
     print('RESPUESTA: ${responseApi.toJson()}');
   }
+
+  void back() {
+    Navigator.pop(context);
+  }
 }

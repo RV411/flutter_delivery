@@ -262,7 +262,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   Widget _iconArrow() {
     return IconButton(
-      onPressed: _con.goToLoginPage,
+      onPressed: _con.back,
       icon: Icon(Icons.arrow_back_ios),
       color: Colors.white,
     );

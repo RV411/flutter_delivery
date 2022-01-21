@@ -30,15 +30,16 @@ class ClientProductsListController {
 
   // PushNotificationsProvider pushNotificationsProvider = new PushNotificationsProvider();
 
-  Future init(BuildContext context, Function refresh) async {
+  Future init(BuildContext context) async {
+    // Future init(BuildContext context, Function refresh) async {
     this.context = context;
-    this.refresh = refresh;
+    // this.refresh = refresh;
     user = User.fromJson(await _sharedPref.read('user'));
     // _categoriesProvider.init(context, user);
     // _productsProvider.init(context, user);
 
     // getCategories();
-    refresh();
+    // refresh();
   }
 
   void onChangeText(String text) {
