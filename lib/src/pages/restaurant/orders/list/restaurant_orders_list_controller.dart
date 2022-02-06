@@ -18,7 +18,8 @@ class RestaurantOrdersListController {
 
   bool isUpdated;
 
-  Future init(BuildContext context, Function refresh) async {
+  Future init(BuildContext context) async {
+    // Future init(BuildContext context, Function refresh) async {
     this.context = context;
     this.refresh = refresh;
     user = User.fromJson(await _sharedPref.read('user'));

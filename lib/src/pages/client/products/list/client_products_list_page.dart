@@ -230,7 +230,8 @@ class _ClientProductListPageState extends State<ClientProductListPage> {
   Widget _drawer() {
     return Drawer(
       child: ListView(
-        padding: EdgeInsets.zero,
+        padding: EdgeInsets
+            .zero, //quita el limite del recuadro y lo pega hasta arriba
         children: [
           DrawerHeader(
               decoration: BoxDecoration(color: MyColors.primaryColor),
@@ -267,6 +268,7 @@ class _ClientProductListPageState extends State<ClientProductListPage> {
                     height: 60,
                     margin: EdgeInsets.only(top: 10),
                     child: FadeInImage(
+                      //FadeInImage se utiliza para poner imagenes de internet
                       image: _con.user?.image != null
                           ? NetworkImage(_con.user?.image)
                           : AssetImage('assets/img/no-image.png'),
