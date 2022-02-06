@@ -19,11 +19,12 @@ class LoginController {
 
     // borra el login  y se queda por default la pagina de inicio del cliente.
     if (user?.sessionToken != null) {
-      Navigator.pushNamedAndRemoveUntil(
-        context,
-        'client/products/list',
-        (route) => false,
-      );
+      if (user.roles.length > 1) {
+        Navigator.pushNamedAndRemoveUntil(context, 'roles', (route) => false);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(
+            context, user.roles[0].route, (route) => false);
+      }
     }
   }
 
@@ -43,19 +44,12 @@ class LoginController {
       // pushNotificationsProvider.saveToken(user.id);
 
       print('USUARIO LOGEADO: ${user.toJson()}');
-      Navigator.pushNamedAndRemoveUntil(
-        context,
-        'client/products/list',
-        (route) => false,
-      );
-
-      //   if (user.roles.length > 1) {
-      //     Navigator.pushNamedAndRemoveUntil(
-      //         context, 'client/products/list', (route) => false);
-      //   } else {
-      //     Navigator.pushNamedAndRemoveUntil(
-      //         context, user.roles[0].route, (route) => false);
-      //   }
+      if (user.roles.length > 1) {
+        Navigator.pushNamedAndRemoveUntil(context, 'roles', (route) => false);
+      } else {
+        Navigator.pushNamedAndRemoveUntil(
+            context, user.roles[0].route, (route) => false);
+      }
     } else {
       MySnackbar.show(context, responseApi.message);
     }
